@@ -8,7 +8,7 @@ package customermenu_leto;
 
 /**
  *
- * @author csc190
+ * @author Gianfranco Leto
  */
 public class dishO {
     public dishO(String name, String description, double price, String image){
