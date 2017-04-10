@@ -6,7 +6,6 @@
 package customermenu_leto;
 
 import javafx.scene.image.ImageView;
-import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.Scanner;
@@ -44,13 +43,14 @@ public class CustomerMenu_Leto extends Application {
         
         //read config.txt and save into object
         try {             
-            Scanner sc = new Scanner(new File("/home/csc190/NetBeansProjects/CustomerMenu_Leto/src/config.txt"));
-            /*while(sc.hasNextLine()){
-                testing
-                String i = sc.nextLine();
-                System.out.println(i);                
-            }*/
-            for(int i = 0; i < 3; i++){
+            Scanner sc = new Scanner(getClass().getResourceAsStream("/resources/config.txt"));
+            while(sc.hasNextLine()){
+                //testing
+                //String i = sc.nextLine();
+                //System.out.println(i);                
+                //}
+
+            //for(int i = 0; i < size; i++){
                 for(int j = 0; j < 4; j++){
                     String nLine = sc.nextLine();
                     if(nLine.contains("Name: ")){
@@ -61,27 +61,27 @@ public class CustomerMenu_Leto extends Application {
                     }
                     else if(nLine.contains("Price: ")){
                         price = Double.parseDouble(nLine.substring(7));                 
-                        }
+                    }
                     else if(nLine.contains("Image: ")){
                         image = "/images/" +nLine.substring(7);
                         //System.out.println(image);
                     }  
                 }
                 
-            //adding dishes
-            //System.out.println("Test0");
-            dishO item = new dishO(name,description,price,image);
-            //System.out.println("Test1");
-            menuItem.add(item);
-            //System.out.println("Test2");
-            System.out.println(menuItem.size());            
-            }
+                //adding dishes
+                //System.out.println("Test0");
+                dishO item = new dishO(name,description,price,image);
+                //System.out.println("Test1");
+                menuItem.add(item);
+                //System.out.println("Test2");
+                //System.out.println(menuItem.size());
+                }        
         }
-        
+              
         catch(Exception e){
             System.out.println("Error Found: " + e);
         }
-                       
+                   
         //Label Start
         nm = new Label(menuItem.get(whereAt).name);
         desc = new Label(menuItem.get(whereAt).description);
